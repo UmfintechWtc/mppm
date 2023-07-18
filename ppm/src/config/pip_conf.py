@@ -1,5 +1,5 @@
-from ppm.src.common.const import *
-from ppm.src.common.utility import *
+from common.const import *
+from common.utility import *
 from pick import pick
 import os
 import configparser
