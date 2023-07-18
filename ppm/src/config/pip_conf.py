@@ -32,7 +32,7 @@ def verification_pypi_url():
 	if pypi_source_url == "None":
 		print_colored("Skip pip repositories configuration.", "yellow")
 	else:
-		config = rewrite_pypi_config()
+		config = rewrite_pypi_config(pypi_source_url)
 		home = os.path.expanduser("~")
 		config_file = os.path.join(home, ".pip", "pip.conf")
 		with open(config_file, "w", encoding="utf8") as f:
