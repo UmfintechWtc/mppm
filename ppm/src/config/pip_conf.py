@@ -14,15 +14,27 @@ def choice_pipy_source():
 	url = pypi_configuration_sources[index]["url"]
 	return url
 
-def rewrite_pypi_config():
+def rewrite_pypi_config(url):
+	"""
+	:param url: pip source url
+	:return: configparser obj
+	"""
+	config = configparser.ConfigParser(allow_no_value=True)
+	config.add_section("global")
+	config.add_section("install")
+	config.set('global', 'timeout', '10')
+	config.set('global', 'index-url', url)
+	config.set('install', 'trusted-host', url.split("/")[2])
+	return config
+
+def verification_pypi_url():
 	pypi_source_url = choice_pipy_source()
 	if pypi_source_url == "None":
 		print_colored("Skip pip repositories configuration.", "yellow")
 	else:
-		config = configparser.ConfigParser()
-		config["global"] = {"index-url": choice_pipy_source()}
+		config = rewrite_pypi_config()
 		home = os.path.expanduser("~")
 		config_file = os.path.join(home, ".pip", "pip.conf")
-		with open(config_file, "w") as f:
+		with open(config_file, "w", encoding="utf8") as f:
 			config.write(f)
 		print_colored("Successfully updated pip repositories configuration[{}]".format(config_file), "green")
