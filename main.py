@@ -1,3 +1,3 @@
 from ppm.src.config.pip_conf import *
 
-rewrite_pypi_config()
+verification_pypi_url()
