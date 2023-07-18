@@ -25,4 +25,4 @@ def rewrite_pypi_config():
 		config_file = os.path.join(home, ".pip", "pip.conf")
 		with open(config_file, "w") as f:
 			config.write(f)
-		print_colored("Successfully updated pip repositories configuration[%]".format(config_file), "green")
+		print_colored("Successfully updated pip repositories configuration[{}]".format(config_file), "green")
