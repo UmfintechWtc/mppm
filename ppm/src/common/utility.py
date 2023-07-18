@@ -1,5 +1,6 @@
 import os
 import sys
+import subprocess
 
 def print_colored(text, color):
     colors = {
@@ -27,3 +28,13 @@ def create_dir(targetPath):
     else:
         os.makedirs(targetPath)
 
+def check_pip_version():
+    python_version = f"{sys.version_info.major}.{sys.version_info.minor}"
+    python_path = f"Python interpreter path: {sys.executable}"
+    print_colored("Usage Python version: {}[{}]".format(python_version, python_path), "green")
+    try:
+        pip_path = subprocess.check_output(["which", f"pip{python_version}"]).decode().strip()
+        print_colored("Usage Pip path: {}".format(pip_path), "green")
+    except subprocess.CalledProcessError:
+        print(f"pip{print_colored} command is not available.")
+        sys.exit(2)
