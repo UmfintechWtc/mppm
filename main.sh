@@ -1,1 +1,0 @@
-python ./src//config/pip_conf.py
