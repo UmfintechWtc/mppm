@@ -1,3 +1,24 @@
+Metadata-Version: 2.1
+Name: mppi
+Version: 1.0.1
+Summary: PyPI Mirror and Package Manager
+Home-page: https://gitee.com/TianCiwang/mppi
+Author: TianCiwang
+Author-email: 13623650548@163.com
+License: MIT
+Keywords: pypi,mirror,package
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
 # mppi
 
 #### Description

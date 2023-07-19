@@ -1,0 +1,2 @@
+[console_scripts]
+mppi = mppi.run:main
