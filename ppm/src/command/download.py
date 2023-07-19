@@ -2,6 +2,7 @@ from ppm.src.common.utility import *
 from ppm.src.config.pip_conf import *
 import os
 
+
 class DownloadCmd():
 	def __init__(self, args):
 		self.args = args
@@ -23,11 +24,12 @@ class DownloadCmd():
 			download_pip_pkg_cmd = "{} download {} -d {}".format(pip_path, self.args.module, self.args.module)
 		else:
 			create_dir(ARG_DOWNLOAD_REQUIREMENT)
-			download_pip_pkg_cmd = "{} download {} {} -d {}".format(pip_path, "-r", self.args.requirement, ARG_DOWNLOAD_REQUIREMENT)
-		print (download_pip_pkg_cmd)
+			download_pip_pkg_cmd = "{} download {} {} -d {}".format(pip_path, "-r", self.args.requirement,
+																	ARG_DOWNLOAD_REQUIREMENT)
+		print(download_pip_pkg_cmd)
 		cmd_result = exec_cmd(download_pip_pkg_cmd)
 		if cmd_result is None or ignore_errors[self.args.sub_cmd] in cmd_result:
 			pkg_save_path = os.path.abspath(ARG_DOWNLOAD_REQUIREMENT)
-			print_colored(f"package download path: {pkg_save_path}","green")
+			print_colored(f"package download path: {pkg_save_path}", "green")
 		else:
-			print_colored(cmd_result,"red")
+			print_colored(cmd_result, "red")

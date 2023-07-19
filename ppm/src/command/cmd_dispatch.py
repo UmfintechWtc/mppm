@@ -8,6 +8,7 @@ cmd_mapping = {
 	SUB_CMD_UNINSTALL: UninstallCmd
 }
 
+
 def dispatch(args):
 	pip_path = check_pip_version()
 	if pip_path:

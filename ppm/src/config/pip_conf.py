@@ -4,6 +4,7 @@ from pick import pick
 import os
 import configparser
 
+
 def choice_pipy_source():
 	"""
 	:return: choose pypi source url
@@ -14,6 +15,7 @@ def choice_pipy_source():
 	url = pypi_configuration_sources[index]["url"]
 	timeout = pypi_configuration_sources[index]["timeout"]
 	return url, timeout
+
 
 def rewrite_pypi_config(url, timeout):
 	"""
@@ -27,6 +29,7 @@ def rewrite_pypi_config(url, timeout):
 	config.set('global', 'index-url', url)
 	config.set('global', 'trusted-host', url.split("/")[2])
 	return config
+
 
 def verification_pypi_url():
 	pypi_source_url, timeout = choice_pipy_source()
