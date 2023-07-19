@@ -33,12 +33,23 @@ def check_pip_version():
     :return: check python & pip is available
     """
     python_version = f"{sys.version_info.major}.{sys.version_info.minor}"
-    python_path = f"Python interpreter path: {sys.executable}"
-    print_colored("Usage Python version: {}[{}]".format(python_version, python_path), "green")
+    print_colored(f"Usage Python version:\t{python_version}", "cyan")
+    print_colored(f"Usage Python path:\t{sys.executable}", "cyan")
     try:
         pip_path = subprocess.check_output(["which", f"pip{python_version}"]).decode().strip()
-        print_colored("Usage Pip path: {}".format(pip_path), "green")
-        return True
+        print_colored(f"Usage Python path\t{pip_path}", "cyan")
+        return pip_path
     except subprocess.CalledProcessError:
-        print_colored("pip{} command is not available.".format(python_version), "green")
+        print_colored("pip{} command is not available.".format(python_version), "red")
         return False
+
+def exec_cmd(cmd):
+	"""
+	:param cmd: exec shell cmd 
+	:return: cmd exec result
+	"""
+	cmd_result = subprocess.run(cmd, shell=True, stderr=subprocess.PIPE, stdout=subprocess.PIPE)
+	if len(cmd_result.stderr.decode("utf8")) == 0:
+		return
+	else:
+		return cmd_result.stderr.decode("utf8")

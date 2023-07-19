@@ -39,7 +39,7 @@ setup(
     install_requires=required,
     packages=['ppm'],
     entry_points={
-        'console_scripts': ['pmm=pmm.cli:main'],
+        'console_scripts': ['ppm=ppm.cli:main'],
     },
     classifiers=[
         'Development Status :: 4 - Beta',

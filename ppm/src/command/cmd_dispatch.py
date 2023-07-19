@@ -8,11 +8,10 @@ cmd_mapping = {
 	SUB_CMD_UNINSTALL: UninstallCmd
 }
 
-def dispath(args):
-	if not check_pip_version():
-		sys.exit(2)
-	if cmd_mapping.get(args.sub_cmd):
-		cmd_mapping[args.sub_cmd](args).exec()
+def dispatch(args):
+	pip_path = check_pip_version()
+	if pip_path:
+		if cmd_mapping.get(args.sub_cmd):
+			cmd_mapping[args.sub_cmd](args).exec(pip_path)
 	else:
-		print_colored("Please Usage: {} {} -h".format(APP_NAME, args.sub_cmd), "red")
 		sys.exit(2)
