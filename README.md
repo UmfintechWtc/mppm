@@ -1,4 +1,4 @@
-# mppi
+# mppm
 
 #### Description
 
@@ -6,11 +6,11 @@ Configure the pypi source repository, download the specified pypi module and its
 
 #### Installation
 
-    pip install mppi
+    pip install mppm
 
 #### Usage
 
-    usage: mppi [-h] [-m]
+    usage: mppm [-h] [-m]
 
     Select PyPI index server used by pip.
 

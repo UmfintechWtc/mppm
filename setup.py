@@ -21,21 +21,22 @@ required = [
 ]
 
 setup(
-    name='mppi',
+    name='mppm',
     version='1.0.1',
-    description='PyPI Mirror and Package Manager',
+    description='Manager Pypi Package & Mirror',
     keywords='pypi,mirror,package',
-    url='https://gitee.com/TianCiwang/mppi',
+    url='https://gitee.com/TianCiwang/mppm.git',
     long_description=fread('README.md'),
     long_description_content_type='text/markdown',
     author='TianCiwang',
     author_email='13623650548@163.com',
     license='MIT',
     install_requires=required,
-    packages=["mppi"],
+    # packages=["mppm"],
+    packages=["mppm", "mppm.src","mppm.src.command","mppm.src.common","mppm.src.config"],
     entry_points={
         'console_scripts': [
-            'mppi=mppi.run:main'
+            'mppm=mppm.run:main'
         ],
     },
     classifiers=[

@@ -1,4 +1,4 @@
-APP_NAME = 'mppi'  # 程序名称
+APP_NAME = 'mppm'  # 程序名称
 EXIT_WITH_ERROR = 9999  # 错误退出码12 为用户自定义信号
 
 pypi_configuration_sources = [
