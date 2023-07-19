@@ -9,6 +9,8 @@ cmd_mapping = {
 }
 
 def dispath(args):
+	if not check_pip_version():
+		sys.exit(2)
 	if cmd_mapping.get(args.sub_cmd):
 		cmd_mapping[args.sub_cmd](args)
 	else:

@@ -21,7 +21,7 @@ def print_colored(text, color):
 
 def create_dir(targetPath):
     """
-    :param targetPath: 创建临时目录
+    :param targetPath: mkdir dir
     """
     if os.path.exists(targetPath):
         pass
@@ -29,12 +29,16 @@ def create_dir(targetPath):
         os.makedirs(targetPath)
 
 def check_pip_version():
+    """
+    :return: check python & pip is available
+    """
     python_version = f"{sys.version_info.major}.{sys.version_info.minor}"
     python_path = f"Python interpreter path: {sys.executable}"
     print_colored("Usage Python version: {}[{}]".format(python_version, python_path), "green")
     try:
         pip_path = subprocess.check_output(["which", f"pip{python_version}"]).decode().strip()
         print_colored("Usage Pip path: {}".format(pip_path), "green")
+        return True
     except subprocess.CalledProcessError:
-        print(f"pip{print_colored} command is not available.")
-        sys.exit(2)
+        print_colored("pip{} command is not available.".format(python_version), "green")
+        return False
