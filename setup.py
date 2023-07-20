@@ -22,7 +22,7 @@ required = [
 
 setup(
     name='mppm',
-    version='1.0.1',
+    version='1.0.2',
     description='Manager Pypi Package & Mirror',
     keywords='pypi,mirror,package',
     url='https://gitee.com/TianCiwang/mppm.git',
@@ -32,7 +32,6 @@ setup(
     author_email='13623650548@163.com',
     license='MIT',
     install_requires=required,
-    # packages=["mppm"],
     packages=["mppm", "mppm.src","mppm.src.command","mppm.src.common","mppm.src.config"],
     entry_points={
         'console_scripts': [
