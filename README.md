@@ -9,20 +9,17 @@ Configure the pypi source repository, support for downloading specified modules 
     pip install mppm
 
 #### Usage
-```text
+
     usage: mppm  <sub-commands>  [<args>] 
     
     mppm Manage pip sources and dependent packages
     
     positional arguments:
-      {download,uninstall}
+      {download}
         download            download modules
-        uninstall           uninstall modules
     
     options:
       -h, --help            show this help message and exit
-```
-
 
 #### Configuration
 
