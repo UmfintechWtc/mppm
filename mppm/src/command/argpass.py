@@ -33,13 +33,16 @@ class Parser:
         group.add_argument(f'-{ARG_DOWNLOAD_MODULE_SHORT}', f'--{ARG_DOWNLOAD_MODULE}',
                            help="download specified modules and dependencies")
         group.add_argument(f'-{ARG_DOWNLOAD_REQUIREMENT_SHORT}', f'--{ARG_DOWNLOAD_REQUIREMENT}',
-                           help="download the modules and dependencies specified in the file")
+                           help="download the modules and dependencies specified in the file. like requirements.txt")
         subparser.add_argument(f'-{ARG_DOWNLOAD_REWRITE_PIP_CONFIG_SHORT}', f'--{ARG_DOWNLOAD_REWRITE_PIP_CONFIG}',
-                               action='store_true', default=False, required=False, help="rewrite pip configuration")
+                               action='store_true', default=False, required=False, help="interactive")
 
     def _add_uninstall_module(self):
         subparser = self.subparser.add_parser(SUB_CMD_UNINSTALL, help="uninstall modules", allow_abbrev=False)
-        subparser.add_argument(f'-{ARG_UNINSTALL_MODULE_SHORT}', f'--{ARG_UNINSTALL_MODULE}', required=True,
-                               help="download specified modules and dependencies")
-        subparser.add_argument(f'-{ARG_UNINSTALL_REWRITE_PIP_CONFIG_SHORT}', f'--{ARG_UNINSTALL_REWRITE_PIP_CONFIG}',
-                               action='store_true', default=True, required=False, help="rewrite pip configuration")
+        group = subparser.add_mutually_exclusive_group(required=True)
+        group.add_argument(f'-{ARG_UNINSTALL_MODULE_SHORT}', f'--{ARG_UNINSTALL_MODULE}',
+                           help="uninstall specified modules and dependencies")
+        group.add_argument(f'-{ARG_UNINSTALL_REQUIREMENT_SHORT}', f'--{ARG_UNINSTALL_REQUIREMENT}', required=True,
+                               help="uninstall the modules and dependencies specified in the file. like requirements.txt")
+        subparser.add_argument(f'-{ARG_UNINSTALL_FORCE_SHORT}', f'--{ARG_UNINSTALL_FORCE}',
+                               action='store_true', default=False, required=False, help="interactive")

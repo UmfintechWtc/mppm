@@ -18,6 +18,7 @@ required = [
     'requests',
     'pick',
     'configparser',
+    'pip-autoremove',
 ]
 
 setup(

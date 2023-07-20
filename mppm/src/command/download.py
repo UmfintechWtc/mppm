@@ -10,7 +10,7 @@ class DownloadCmd():
 
     def confirmation_prompt(self):
         yes_list = ["yes", "y"]
-        prompt = "Do you need to rewrite the pip configuration: (yes/y/no)? "
+        prompt = "Are you sure want to continue rewrite the pip configuration: (yes/y/no)? "
         if self.rewrite_config:
             if input(prompt).lower().strip() not in yes_list:
                 print_colored("cancel rewrite the pip configuration", "yellow")
@@ -24,9 +24,8 @@ class DownloadCmd():
             download_pip_pkg_cmd = "{} download {} -d {}".format(pip_path, self.args.module, self.args.module)
         else:
             create_dir(ARG_DOWNLOAD_REQUIREMENT)
-            download_pip_pkg_cmd = "{} download {} {} -d {}".format(pip_path, "-r", self.args.requirement,
+            download_pip_pkg_cmd = "{} download -r {} -d {}".format(pip_path, self.args.requirement,
                                                                     ARG_DOWNLOAD_REQUIREMENT)
-        print(download_pip_pkg_cmd)
         cmd_result = exec_cmd(download_pip_pkg_cmd)
         if cmd_result is None or ignore_errors[self.args.sub_cmd] in cmd_result:
             pkg_save_path = os.path.abspath(ARG_DOWNLOAD_REQUIREMENT)
