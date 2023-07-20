@@ -62,9 +62,9 @@ The project project can only be started after the installation of the dependent 
     mppm download -r /tmp/requiremen.txt -y
 
 
-#### Configuration
+## Configuration
 
-You can add package indexes to your `pip.conf` file. Example:
+You can add package indexes to your `~/.pip/pip.conf` file. Example:
 
     [global]
     timeout = 120
