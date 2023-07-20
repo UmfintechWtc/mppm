@@ -35,14 +35,14 @@ class Parser:
         group.add_argument(f'-{ARG_DOWNLOAD_REQUIREMENT_SHORT}', f'--{ARG_DOWNLOAD_REQUIREMENT}',
                            help="download the modules and dependencies specified in the file. like requirements.txt")
         subparser.add_argument(f'-{ARG_DOWNLOAD_REWRITE_PIP_CONFIG_SHORT}', f'--{ARG_DOWNLOAD_REWRITE_PIP_CONFIG}',
-                               action='store_true', default=False, required=False, help="interactive")
+                               action='store_true', default=False, required=False, help="rewrite the pip configuration")
 
     def _add_uninstall_module(self):
         subparser = self.subparser.add_parser(SUB_CMD_UNINSTALL, help="uninstall modules", allow_abbrev=False)
         group = subparser.add_mutually_exclusive_group(required=True)
         group.add_argument(f'-{ARG_UNINSTALL_MODULE_SHORT}', f'--{ARG_UNINSTALL_MODULE}',
                            help="uninstall specified modules and dependencies")
-        group.add_argument(f'-{ARG_UNINSTALL_REQUIREMENT_SHORT}', f'--{ARG_UNINSTALL_REQUIREMENT}', required=True,
+        group.add_argument(f'-{ARG_UNINSTALL_REQUIREMENT_SHORT}', f'--{ARG_UNINSTALL_REQUIREMENT}',
                                help="uninstall the modules and dependencies specified in the file. like requirements.txt")
         subparser.add_argument(f'-{ARG_UNINSTALL_FORCE_SHORT}', f'--{ARG_UNINSTALL_FORCE}',
                                action='store_true', default=False, required=False, help="interactive")

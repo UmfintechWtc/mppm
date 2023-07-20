@@ -28,7 +28,6 @@ class DownloadCmd():
                                                                     ARG_DOWNLOAD_REQUIREMENT)
         cmd_result = exec_cmd(download_pip_pkg_cmd)
         if cmd_result is None or ignore_errors[self.args.sub_cmd] in cmd_result:
-            pkg_save_path = os.path.abspath(ARG_DOWNLOAD_REQUIREMENT)
-            print_colored(f"package download path: {pkg_save_path}", "green")
+            print_colored(f"the module and dependencies have been downloaded. Please check the current path", "green")
         else:
             print_colored(cmd_result, "red")

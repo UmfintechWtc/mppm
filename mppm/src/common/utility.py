@@ -52,8 +52,45 @@ def exec_cmd(cmd):
     :param cmd: exec shell cmd 
     :return: cmd exec result
     """
-    cmd_result = subprocess.run(cmd, shell=True, stderr=subprocess.PIPE, stdout=subprocess.PIPE)
-    if len(cmd_result.stderr.decode("utf8")) == 0:
+    # cmd_result = subprocess.run(cmd, shell=True, stderr=subprocess.PIPE, stdout=subprocess.PIPE)
+    process = subprocess.Popen(cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=True)
+    cmd_result_stderr = ""
+    while True:
+        # output stdout
+        cmd_result = process.stdout.readline()
+        if cmd_result == b'' and process.poll() is not None:
+            break
+        if cmd_result:
+            print_colored(cmd_result.decode('utf-8').strip(), "magenta")
+        
+    while True:
+        # output stderr
+        stderr = process.stderr.readline()
+        if not stderr and not process.poll() is None:
+            break
+        if stderr:
+            cmd_result_stderr += stderr.decode('utf-8')
+
+    if len(cmd_result_stderr) == 0:
         return
     else:
-        return cmd_result.stderr.decode("utf8")
+        return cmd_result_stderr
+
+def module_type(args):
+    if args.module:
+        module_name = args.module
+    else:
+        module_name = args.requirement
+    return module_name
+
+def fmt_requirement_content(source_file, fmt_type):
+    with open(source_file, "r", encoding="utf8") as sourceFile:
+        if fmt_type == "string":
+            fmt_content = ""
+            for module in sourceFile:
+                fmt_content += module.strip() + " "
+        elif fmt_type == "list":
+            return 
+        elif fmt_type == "dict":
+            return
+    return fmt_content

@@ -12,7 +12,8 @@ pypi_configuration_sources = [
 pip_configuration_name = "pip.conf"
 
 ignore_errors = {
-    "download": "You should consider upgrading"
+    "download": "You should consider upgrading",
+    "uninstall": "not an installed pip module"
 }
 
 # Download specified modules and dependencies

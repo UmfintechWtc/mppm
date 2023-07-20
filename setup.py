@@ -23,7 +23,7 @@ required = [
 
 setup(
     name='mppm',
-    version='1.0.2',
+    version='2.0.1',
     description='Manager Pypi Package & Mirror',
     keywords='pypi,mirror,package',
     url='https://gitee.com/TianCiwang/mppm.git',
@@ -43,7 +43,6 @@ setup(
 		'Development Status :: 4 - Beta',
 		'Intended Audience :: Developers',
 		'License :: OSI Approved :: MIT License',
-		'Programming Language :: Python',
 		'Programming Language :: Python :: 3.6',
         'Programming Language :: Python :: 3.7',
         'Programming Language :: Python :: 3.8',
