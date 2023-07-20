@@ -2,21 +2,27 @@
 
 #### Description
 
-Configure the pypi source repository, download the specified pypi module and its dependent packages.
+Configure the pypi source repository, support for downloading specified modules or files and its dependent packages.
 
 #### Installation
 
     pip install mppm
 
 #### Usage
+```text
+    usage: mppm  <sub-commands>  [<args>] 
+    
+    mppm Manage pip sources and dependent packages
+    
+    positional arguments:
+      {download,uninstall}
+        download            download modules
+        uninstall           uninstall modules
+    
+    options:
+      -h, --help            show this help message and exit
+```
 
-    usage: mppm [-h] [-m]
-
-    Select PyPI index server used by pip.
-
-    optional arguments:
-      -h, --help     show this help message and exit
-      -m, --mirrors  download list of PyPI mirrors and add them to selection
 
 #### Configuration
 
