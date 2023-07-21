@@ -1,6 +1,6 @@
 APP_NAME = 'mppm'  # 程序名称
-APP_VERSION_MAJOR = "2.0"
-APP_VERSION_MINOR = "3"
+APP_VERSION_MAJOR = "3.0"
+APP_VERSION_MINOR = "1"
 EXIT_WITH_ERROR = 9999  # 错误退出码12 为用户自定义信号
 
 pypi_configuration_sources = [

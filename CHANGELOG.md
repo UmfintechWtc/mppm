@@ -1,5 +1,17 @@
 # Changelog
 
+## 3.0.1 (2023.07.23)
+
+#### New Features
+
+* support --version/-v  
+* support config sub-command
+
+#### Docs
+
++ update README.md
+
+
 ## 2.0.1 (2023.07.21)
 
 #### New Features

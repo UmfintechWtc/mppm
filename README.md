@@ -18,20 +18,32 @@ The project project can only be started after the installation of the dependent 
     usage: mppm  <sub-commands>  [<args>] 
 
     mppm Manage pip sources and dependent packages
-
+    
     positional arguments:
-      {download,uninstall}
+      {download,uninstall,config}
         download            download modules
         uninstall           uninstall modules
-
+        config              rewrite pip configuration
+    
     options:
       -h, --help            show this help message and exit
+      -v, --version         show program's version number and exit
 
+### SubCommand: config
+    usage: mppm  <sub-commands>  [<args>] config [-h] [-y]
+
+    options:
+      -h, --help  show this help message and exit
+      -y, --yes   force rewrite pip configuration
+
+#### examples
+
+    mppm config
 
 ### SubCommand: download
 
     usage: mppm  <sub-commands>  [<args>] download [-h] (-m MODULE | -r REQUIREMENT) [-y]
-
+    
     options:
       -h, --help            show this help message and exit
       -m MODULE, --module MODULE
@@ -40,10 +52,10 @@ The project project can only be started after the installation of the dependent 
                             download the modules and dependencies specified in the file. like requirements.txt
       -y, --yes             rewrite the pip configuration
 
+
   #### examples
     mppm download -m flask  
-    mppm download -r /tmp/requiremen.txt -y
-
+    mppm download -r /tmp/requiremen.txt
 
 ### SubCommand: uninstall
 
@@ -60,7 +72,6 @@ The project project can only be started after the installation of the dependent 
   #### examples
     mppm uninstall -m flask
     mppm download -r /tmp/requiremen.txt -y
-
 
 ## Configuration
 
