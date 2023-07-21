@@ -30,7 +30,7 @@ def rewrite_pypi_config(url, timeout):
 	config.set('global', 'trusted-host', url.split("/")[2])
 	return config
 
-@property
+
 def verification_pypi_url():
 	pypi_source_url, timeout = choice_pipy_source()
 	if pypi_source_url == "None":
@@ -41,4 +41,3 @@ def verification_pypi_url():
 		config_file = os.path.join(home, ".pip", "pip.conf")
 		with open(config_file, "w", encoding="utf8") as f:
 			config.write(f)
-		return config_file

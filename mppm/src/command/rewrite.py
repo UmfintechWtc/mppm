@@ -13,11 +13,11 @@ class RewriteCmd():
         prompt = "Are you sure want to continue rewrite the pip configuration: (yes/y/no)? "
         if not self.rewrite_config:
             if input(prompt).lower().strip() not in yes_list:
-                print_colored("cancel rewrite the pip configuration", "yellow")
+                return False
             else:
-                return verification_pypi_url
+                verification_pypi_url
         else:
-            return verification_pypi_url
+            verification_pypi_url
 
     def exec(self, pip_path):
         if self.confirmation_prompt:
