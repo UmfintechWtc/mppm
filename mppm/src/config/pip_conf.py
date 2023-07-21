@@ -34,10 +34,11 @@ def rewrite_pypi_config(url, timeout):
 def verification_pypi_url():
 	pypi_source_url, timeout = choice_pipy_source()
 	if pypi_source_url == "None":
-		return False
+		print_colored("Skip pip repositories configuration.", "yellow")
 	else:
 		config = rewrite_pypi_config(pypi_source_url, timeout)
 		home = os.path.expanduser("~")
 		config_file = os.path.join(home, ".pip", "pip.conf")
 		with open(config_file, "w", encoding="utf8") as f:
 			config.write(f)
+		print_colored("Successfully updated pip repositories configuration[{}]".format(config_file), "green")
