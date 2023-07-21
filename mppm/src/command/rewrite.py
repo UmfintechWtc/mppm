@@ -16,9 +16,11 @@ class RewriteCmd():
                 print_colored("cancel rewrite the pip configuration", "yellow")
             else:
                 return verification_pypi_url
+        else:
+            return verification_pypi_url
 
     def exec(self, pip_path):
         if self.confirmation_prompt:
-            print_colored("Successfully updated pip repositories configuration[{}]".format(self.confirmation_prompt), "green")
+            print_colored("Successfully updated pip repositories configuration[{}]".format("name"), "green")
         else:
             print_colored("Skip pip repositories configuration.", "yellow")
