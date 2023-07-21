@@ -32,6 +32,7 @@ class Parser:
 	def _add_all_parsers(self):
 		self._add_download_module()
 		self._add_uninstall_module()
+		self._add_rewrite_module()
 
 	def parse(self):
 		args = self.parser.parse_args()
