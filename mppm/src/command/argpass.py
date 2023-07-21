@@ -4,11 +4,18 @@ from src.common.const import *
 
 
 class DefaultHelpParser(argparse.ArgumentParser):
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.version = None
+
     def error(self, message):
         print('error: %s\n' % message, file=sys.stderr)
         self.print_help()
         sys.exit(2)
 
+    def add_version_argument(self, version):
+        self.version = version
+        self.add_argument(f'{ARG_VERSION}', f'{ARG_VERSION_SHORT}', action='version', version=f'{APP_NAME} {version}')
 
 class Parser:
     def __init__(self):
@@ -16,6 +23,7 @@ class Parser:
             description=f'{APP_NAME} Manage pip sources and dependent packages',
             usage=f"{APP_NAME}  <sub-commands>  [<args>] \n",
             allow_abbrev=False)
+        self.parser.add_version_argument(f"{APP_VERSION_MAJOR}.{APP_VERSION_MINOR}")
         self.subparser = self.parser.add_subparsers(dest='sub_cmd')
         self._add_all_parsers()
 
