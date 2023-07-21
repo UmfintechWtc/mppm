@@ -37,6 +37,12 @@ class Parser:
 		args = self.parser.parse_args()
 		return args
 
+	def _add_rewrite_module(self):
+		subparse = self.subparser.add_parser(SUB_CMD_REWRITE, help="rewrite pip configuration", allow_abbrev=False)
+		subparse.add_argument(f'-{ARG_CONFIG_REWRITE_FORCE_SHORT}', f'--{ARG_CONFIG_REWRITE_FORCE}',
+							  action='store_true', default=False,
+							  required=False, help="force rewrite pip configuration")
+
 	def _add_download_module(self):
 		subparser = self.subparser.add_parser(SUB_CMD_DOWNLOAD, help="download modules", allow_abbrev=False)
 		group = subparser.add_mutually_exclusive_group(required=True)

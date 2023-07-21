@@ -2,10 +2,12 @@ from src.common.const import *
 from src.common.utility import *
 from src.command.download import DownloadCmd
 from src.command.uninstall import UninstallCmd
+from src.command.rewrite import RewriteCmd
 
 cmd_mapping = {
     SUB_CMD_DOWNLOAD: DownloadCmd,
-    SUB_CMD_UNINSTALL: UninstallCmd
+    SUB_CMD_UNINSTALL: UninstallCmd,
+    SUB_CMD_REWRITE: RewriteCmd
 }
 
 

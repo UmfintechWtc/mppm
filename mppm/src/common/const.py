@@ -19,9 +19,9 @@ ignore_errors = {
 }
 
 # rewrite pip configuration
-SUB_CMD_CONFIG = "config"
-ARG_CONFIG_YES = "yes"
-ARG_CONFIG_YES_SHORT = "y"
+SUB_CMD_REWRITE = "config"
+ARG_CONFIG_REWRITE_FORCE = "yes"
+ARG_CONFIG_REWRITE_FORCE_SHORT = "y"
 
 # Download specified modules and dependencies
 SUB_CMD_DOWNLOAD = "download"

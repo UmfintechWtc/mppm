@@ -6,19 +6,8 @@ import os
 class DownloadCmd():
     def __init__(self, args):
         self.args = args
-        self.rewrite_config = args.yes
-
-    def confirmation_prompt(self):
-        yes_list = ["yes", "y"]
-        prompt = "Are you sure want to continue rewrite the pip configuration: (yes/y/no)? "
-        if self.rewrite_config:
-            if input(prompt).lower().strip() not in yes_list:
-                print_colored("cancel rewrite the pip configuration", "yellow")
-            else:
-                verification_pypi_url()
 
     def exec(self, pip_path):
-        self.confirmation_prompt()
         if self.args.module:
             create_dir(self.args.module)
             download_pip_pkg_cmd = "{} download {} -d {}".format(pip_path, self.args.module, self.args.module)
