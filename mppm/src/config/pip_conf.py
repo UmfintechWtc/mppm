@@ -11,9 +11,9 @@ def choice_pipy_source():
     """
 	title = "Please choose a PyPI Configuration Source: "
 	options = [f"{source['name']: <20}{source['url']}" for source in pypi_configuration_sources]
-	option, index = pick(options, title, indicator="=>")
-	url = pypi_configuration_sources[index]["url"]
-	timeout = pypi_configuration_sources[index]["timeout"]
+	option = pick(options, title, indicator="=>")
+	url = pypi_configuration_sources[option[0][1]]["url"]
+	timeout = pypi_configuration_sources[option[0][1]]["timeout"]
 	return url, timeout
 
 
